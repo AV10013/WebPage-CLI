@@ -1,0 +1,12 @@
+Open folder in code editor
+Install node from: https://nodejs.org/en
+
+
+Run "npm init" in directory
+
+Run  "npm install express"
+
+Run html webpage for frontend
+
+Run "node index.js" for backend
+

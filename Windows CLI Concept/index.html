@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Execute Windows CLI Commands</title>
+</head>
+<body>
+    <button onclick="executeCommand('dir')">Input Directory</button>
+    <button onclick="executeCommand('echo Process Data')">Echo Text</button>
+    <button onclick="executeCommand('')">Output Directory</button>
+    <div id="output"></div>
+
+    <script>
+        async function executeCommand(command) {
+            const response = await fetch('http://localhost:3000/execute', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ command }),
+            });
+
+            const result = await response.json();
+            document.getElementById('output').innerText = result.output || result.error;
+        }
+    </script>
+</body>
+</html>
